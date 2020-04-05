@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <name>maven-semantic-release-sample</name>
-    <description>Sample project for semantic release</description>
+    <description>Sample maven project for semantic release</description>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.wadahiro</groupId>
