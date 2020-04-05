@@ -7,7 +7,7 @@
 
     <groupId>com.github.wadahiro</groupId>
     <artifactId>maven-semantic-release-sample</artifactId>
-    <version>1.1.3-SNAPSHOT</version>
+    <version>1.1.3</version>
     <packaging>jar</packaging>
 
 </project>
