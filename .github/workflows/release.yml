@@ -22,18 +22,18 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
+    - uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('.github/workflows/release.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
     - name: Setup node
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
     - name: Setup semantic-release
       run: npm install -g @conveyal/maven-semantic-release semantic-release@15 @semantic-release/exec@v3.3.8
-    - name: Setup ghr
-      run: |
-        curl -LO https://github.com/tcnksm/ghr/releases/download/v0.13.0/ghr_v0.13.0_linux_amd64.tar.gz
-        tar xvzf ghr_*.tar.gz
-        sudo mv ghr_*/ghr /usr/local/bin/
-        rm -rf ghr_*
     - name: Release
       run: |
         #semantic-release --prepare @conveyal/maven-semantic-release --publish @semantic-release/github,@conveyal/maven-semantic-release --verify-conditions @semantic-release/github,@conveyal/maven-semantic-release --verify-release @conveyal/maven-semantic-release --use-conveyal-workflow --skip-maven-deploy
